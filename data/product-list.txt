@@ -1,0 +1,17 @@
+Nova Demo Store — Product List (fictional demo data)
+
+The fictional Nimbus keyboard costs 45 demo credits.
+
+The fictional Nimbus keyboard has a compact layout, quiet switches, and a detachable demo cable. It is not a real product and cannot be purchased. Prices are listed only in fictional demo credits.
+
+Other fictional demo items:
+- Cirrus mouse: 20 demo credits.
+- Stratus monitor stand: 30 demo credits.
+- Cumulus desk mat: 12 demo credits.
+- Aurora USB hub: 25 demo credits.
+
+Shipping: Fictional demo orders over 100 demo credits receive free demo shipping. Demo shipping normally takes three fictional business days. No real orders are accepted through this document.
+
+Returns: Fictional demo returns are accepted within 14 demo days of delivery if the demo item is unused. This is sample text for retrieval testing only.
+
+This document is entirely fictional and is used only to test retrieval-augmented generation in the Nova demo application. Do not treat any value in this file as a real product listing or price.

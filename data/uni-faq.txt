@@ -1,0 +1,13 @@
+Nova Demo University — Student FAQ (fictional demo data)
+
+The Nova Demo University demo library closes at 7:15 PM on Thursdays.
+
+On other weekdays, the demo library is open from 8:00 AM to 9:00 PM. On Saturdays it is open from 10:00 AM to 4:00 PM, and it is closed on Sundays and public holidays. These hours apply only to the fictional Nova Demo University campus and are not a statement about any real institution.
+
+Student support desk: The fictional student support desk answers general questions from 9:00 AM to 5:00 PM, Monday to Friday. It is closed during the university's winter break. Students can leave a message with the demo reception, but no real message is delivered because this is test data.
+
+Demo ID cards: A replacement demo student ID card costs 10 demo credits. A lost card should be reported to the fictional reception desk. This is sample text for retrieval testing only.
+
+Exam rules: Demo exams begin at 9:30 AM unless the fictional course outline says otherwise. Students should arrive fifteen minutes early. No real examination policy is described here.
+
+This document is entirely fictional and is used only to test retrieval-augmented generation in the Nova demo application. Do not treat any value in this file as a real university rule.

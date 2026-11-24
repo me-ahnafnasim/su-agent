@@ -1,0 +1,13 @@
+Nova Demo Company — Remote Work Policy (fictional demo data)
+
+Staff may request 2 remote-work days per calendar month in this fictional policy.
+
+Remote-work requests should be submitted to a demo team lead at least two working days in advance. Approval is not guaranteed and depends on fictional team coverage. This policy is sample text for retrieval testing only and does not describe any real employer's rules.
+
+Working hours: The fictional Nova Demo Company core hours are 10:00 AM to 4:00 PM. Outside core hours, demo staff may arrange their remaining hours with their demo team lead. Breaks are not tracked in this fictional system.
+
+Equipment: Demo staff may borrow one fictional monitor and one fictional keyboard for home use. Equipment must be returned when demo employment ends. No real equipment is provided through this document.
+
+Expenses: Fictional remote-work expenses are reimbursed up to 20 demo credits per month with a demo receipt. This is not a real reimbursement policy.
+
+This document is entirely fictional and is used only to test retrieval-augmented generation in the Nova demo application. Do not treat any value in this file as a real company policy.
