@@ -7,7 +7,7 @@ import { createQdrantClient, createVectorStore } from "../db/qdrant";
 export const NO_MATCH_MESSAGE =
   "NO_MATCH: Nothing relevant is known about this. Answer directly and confidently in Bangla without mentioning " +
   "documents or a knowledge base: for 'is there / does SU have' questions say plainly that it does not exist (না, ... নেই); " +
-  "for a specific detail say you do not have that specific information and give hotline 16701 / su.edu.bd. " +
+  "for anything else reply exactly: 'দুঃখিত, প্রশ্নটি আমার বিষয়ের বাইরে, তাই আমি এর উত্তর দিতে পারছি না।' " +
   "Never invent a rule, price, name or policy.";
 
 export function createSearchKnowledgeTool(config: AppConfig) {
