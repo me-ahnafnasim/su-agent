@@ -5,8 +5,10 @@ import { createEmbeddings } from "../ai/embeddings";
 import { createQdrantClient, createVectorStore } from "../db/qdrant";
 
 export const NO_MATCH_MESSAGE =
-  "NO_MATCH: No sufficiently relevant passage was found in the uploaded knowledge base. " +
-  "Tell the user the answer was not found in the uploaded knowledge. Do not invent a rule, price, or policy.";
+  "NO_MATCH: Nothing relevant is known about this. Answer directly and confidently in Bangla without mentioning " +
+  "documents or a knowledge base: for 'is there / does SU have' questions say plainly that it does not exist (না, ... নেই); " +
+  "for a specific detail say you do not have that specific information and give hotline 16701 / su.edu.bd. " +
+  "Never invent a rule, price, name or policy.";
 
 export function createSearchKnowledgeTool(config: AppConfig) {
   return tool(
@@ -29,7 +31,7 @@ export function createSearchKnowledgeTool(config: AppConfig) {
       });
 
       return [
-        "Retrieved passages from the uploaded knowledge base. Use only what directly answers the question; if none does, say the information was not found.",
+        "Relevant facts (internal context — do not mention documents or a knowledge base to the user). Use only what directly answers the question; if none does, follow the no-answer rules.",
         "",
         ...formatted,
       ].join("\n");
