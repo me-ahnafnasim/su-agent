@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { AlertCircle, Info, Mic, MicOff, SendHorizontal, Square } from "lucide-react";
+import { AlertCircle, Info, Mic, MicOff, Square } from "lucide-react";
 import type { ChatMessage } from "@/types";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import RichText from "./RichText";
 import VoiceAvatar, { type AvatarState } from "./VoiceAvatar";
@@ -24,7 +22,6 @@ interface TalkModeProps {
   error: string | null;
   onTalk: () => void;
   onStopSpeaking: () => void;
-  onSendText: (text: string) => void;
 }
 
 const STATUS: Record<AvatarState, string> = {
@@ -53,19 +50,11 @@ export default function TalkMode({
   error,
   onTalk,
   onStopSpeaking,
-  onSendText,
 }: TalkModeProps) {
-  const [text, setText] = useState("");
   const lastUser = [...messages].reverse().find((m) => m.role === "user");
   const lastNova = [...messages].reverse().find((m) => m.role === "assistant");
   const speaking = avatarState === "speaking";
 
-  const submitText = () => {
-    const value = text.trim();
-    if (!value || pending) return;
-    setText("");
-    onSendText(value);
-  };
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-4 overflow-y-auto px-4 py-6">
@@ -105,7 +94,7 @@ export default function TalkMode({
           </Button>
           {!micSupported && (
             <p className="max-w-sm text-center text-xs text-muted-foreground">
-              Voice input is not supported in this browser — নিচে লিখে পাঠান, SU Agent উত্তর বলে শোনাবে।
+              Voice input is not supported in this browser — এখানে ভয়েস ইনপুট সমর্থিত নয়, চ্যাট মোড ব্যবহার করুন।
             </p>
           )}
         </CardContent>
@@ -136,27 +125,6 @@ export default function TalkMode({
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
-
-      {/* Typing fallback: still a spoken conversation when the mic is unavailable */}
-      <form
-        className="flex items-center gap-2"
-        onSubmit={(event) => {
-          event.preventDefault();
-          submitText();
-        }}
-      >
-        <Input
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          maxLength={4000}
-          placeholder="অথবা এখানে লিখুন…"
-          aria-label="লিখে বলুন"
-        />
-        <Button type="submit" variant="secondary" disabled={pending || !text.trim()}>
-          <SendHorizontal />
-          পাঠান
-        </Button>
-      </form>
     </div>
   );
 }

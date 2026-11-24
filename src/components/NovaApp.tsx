@@ -191,7 +191,6 @@ export default function NovaApp() {
           error={chat.error}
           onTalk={toggleMic}
           onStopSpeaking={cancel}
-          onSendText={(text) => void sendAndMaybeSpeak(text, true)}
         />
       )}
     </div>

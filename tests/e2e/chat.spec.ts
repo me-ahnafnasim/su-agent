@@ -81,19 +81,18 @@ test("unsupported voice input degrades gracefully", async ({ page }) => {
   await expect(input(page)).toBeEnabled();
 });
 
-test("Chat and Talk are separate modes sharing one conversation", async ({ page }) => {
-  await mockChat(page, () => ({ status: 200, json: { reply: "আমি নোভা।" } }));
-  await page.route("**/api/tts", (route) => route.fulfill({ status: 503, body: "{}" }));
+test("Talk mode is voice-only and shares the conversation with Chat", async ({ page }) => {
+  await mockChat(page, () => ({ status: 200, json: { reply: "আমি SU Agent।" } }));
   await page.goto("/");
+  await input(page).fill("তুমি কে?");
+  await input(page).press("Enter");
+  await expect(page.getByText("আমি SU Agent।")).toBeVisible();
+
   await page.getByRole("tab", { name: /কথা বলুন/ }).click();
   await expect(page.getByRole("img", { name: "SU Agent প্রস্তুত" })).toBeVisible();
-
-  await page.getByRole("textbox", { name: "লিখে বলুন" }).fill("তুমি কে?");
-  await page.getByRole("textbox", { name: "লিখে বলুন" }).press("Enter");
-  await expect(page.getByText("আমি নোভা।")).toBeVisible();
-
-  await page.getByRole("tab", { name: /চ্যাট/ }).click();
-  await expect(page.getByText("তুমি কে?")).toBeVisible(); // same transcript in Chat mode
+  await expect(page.getByRole("button", { name: "কথা বলুন" }).last()).toBeVisible();
+  await expect(page.getByRole("textbox")).toHaveCount(0); // no typing in Talk mode
+  await expect(page.getByText("আমি SU Agent।")).toBeVisible(); // same conversation, shown as caption
 });
 
 test("health endpoint responds", async ({ request }) => {
