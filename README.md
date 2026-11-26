@@ -5,18 +5,10 @@
 An AI agent that answers questions about Sonargaon University in Bangla — by text or by voice,
 with a talking, lip-syncing avatar.
 
-## Chat mode
-
-Type a question; the agent searches the university knowledge base and replies in Bangla.
-
-![Chat demo](docs/chat-demo.gif)
-
-## Talk mode
-
-Tap and speak in Bangla. When you stop, the agent transcribes your voice, answers, and speaks
-the reply aloud while the avatar animates (listening → thinking → speaking).
-
-![Voice demo](docs/voice-demo.gif)
+| 💬 Chat mode | 🎙️ Talk mode |
+| :---: | :---: |
+| <img src="docs/chat-demo.gif" alt="Chat demo" width="420"> | <img src="docs/voice-demo.gif" alt="Voice demo" width="420"> |
+| Type a question; the agent searches the university knowledge base and replies in Bangla. | Tap and speak in Bangla; the agent transcribes, answers, and speaks the reply while the avatar animates (listening → thinking → speaking). |
 
 ## How it works
 
