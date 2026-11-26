@@ -61,15 +61,8 @@ export async function synthesizeSpeech(
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": config.googleApiKey },
       body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              {
-                text: `Read the following Bangla text aloud in a warm, friendly, natural voice:\n\n${text}`,
-              },
-            ],
-          },
-        ],
+        // Send only the text: the TTS model reads any style instruction aloud.
+        contents: [{ parts: [{ text }] }],
         generationConfig: {
           responseModalities: ["AUDIO"],
           speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: config.googleTtsVoice } } },
